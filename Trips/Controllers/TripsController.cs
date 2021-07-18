@@ -74,7 +74,7 @@ namespace Trips.Controllers
         }
 
         [HttpPut("UpdateTrip/{id}")]
-        public IActionResult UpdateTrip(int id, Travel trip)
+        public IActionResult UpdateTrip(int id, [FromBody]Travel trip)
         {
             _service.UpdateTrip(id, trip);
 
@@ -108,7 +108,7 @@ namespace Trips.Controllers
         public IActionResult DeleteTrip(int id)
         {
             _service.DeleteTrip(id);
-            return Ok();
+            return RedirectToAction(nameof(GetTrips));
         }
 
 
