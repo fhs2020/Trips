@@ -104,11 +104,11 @@ namespace Trips.Controllers
             return View();
         }
 
-        [HttpDelete("DeleteTrip/{id}")]
+        [HttpPost("DeleteTrip/{id}")]
         public IActionResult DeleteTrip(int id)
         {
             _service.DeleteTrip(id);
-            return RedirectToAction(nameof(GetTrips));
+            return Ok();
         }
 
 
@@ -119,7 +119,8 @@ namespace Trips.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return Ok();
             }
             catch
             {
